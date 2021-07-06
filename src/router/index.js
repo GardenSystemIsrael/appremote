@@ -17,7 +17,8 @@ const routes = [
     component: Crear
   },
   {
-    path: '/editar',
+    //colocamos /:id para recibir el parametro
+    path: '/editar/:id',
     name: 'Editar',
     component: Editar
   },

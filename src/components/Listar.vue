@@ -27,7 +27,11 @@
                             <td>{{ empleado.surname }}</td>
                             <td>{{ empleado.email }}</td>
                             <td>
-                                <button type="button" class="btn btn-outline-success margen-derecho">Editar</button>   
+                                   
+                                <router-link :to="{name:'Editar', params:{id:empleado.id}}"
+                                class="btn btn-outline-success margen-derecho">
+                                    Editar
+                                </router-link>
                                 <button type="button" class="btn btn-outline-danger" v-on:click="borrarEmpleado(empleado.id)">
                                     Borrar
                                 </button>
@@ -44,7 +48,6 @@
     </div>
 </template>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 export default {
     data() {
@@ -65,7 +68,7 @@ export default {
             fetch('http://localhost/remote/')
                 .then(respuesta=>respuesta.json())
                 .then((datosRespuesta)=>{
-                    console.table(datosRespuesta)
+                    // console.table(datosRespuesta)
                     this.empleados=[]
                     if(typeof datosRespuesta[0].success==='undefined'){
                         this.empleados=datosRespuesta
@@ -76,6 +79,7 @@ export default {
 
         //creamos el metodo de borrar empleados
         borrarEmpleado(id){
+            console.log(id)
                 fetch('http://localhost/remote/?borrar='+id)
                     .then(respuesta=>respuesta.json())
                     .then((datosRespuesta)=>{
