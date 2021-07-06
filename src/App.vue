@@ -7,6 +7,7 @@
         <div class="nav navbar-nav">  
           <router-link to="/crear" class="nav-link derecha">Dar de alta empleado</router-link> 
           <router-link to="/listar" class="nav-link derecha">Consultar empleados</router-link>
+          <router-link to="/eventos" class="nav-link" >Ver eventos</router-link>
         </div>
     </nav>
 

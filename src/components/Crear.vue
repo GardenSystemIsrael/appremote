@@ -18,6 +18,22 @@
                     </div>
 
                     <div class="form-group">
+                      <label for="code">CONTRASEÑA</label>
+                      <input type="password"
+                        class="form-control" name="pass" id="pass" v-model="empleado.pass" aria-describedby="helpId"
+                        placeholder="PASSWORD" required>
+                      <small id="helpId" class="form-text text-muted">contraseña</small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="code">CONFIRMA CONTRASEÑA</label>
+                      <input type="password"
+                        class="form-control" name="passC" id="passC" v-model="passC" aria-describedby="helpId"
+                        placeholder="CONFIRM PASSWORD" required>
+                      <small id="helpId" class="form-text text-muted">confirma contraseña</small>
+                    </div>
+
+                    <div class="form-group">
                       <label for="name">NOMBRE</label>
                       <input type="text"
                         class="form-control" name="name" id="name" v-model="empleado.name" aria-describedby="helpId" 
@@ -69,29 +85,36 @@
 export default {
     data(){
         return {
-            empleado: {}
+            empleado: {},
+            passC: this.passC
         }
     },
 
     methods: {
         agregar(){
+          
             var datosEnviar = {
                 code: this.empleado.code,
+                pass: this.empleado.pass,
                 name: this.empleado.name,
                 last_name: this.empleado.last_name,
                 surname: this.empleado.surname,
                 email: this.empleado.email
             }
 
-            fetch('http://localhost/remote/?insertar=1',{
-                method: "POST",
-                body: JSON.stringify(datosEnviar)
-            })
-                .then(respuesta=>respuesta.json())
-                .then((datosRespuesta=>{
-                    console.table(datosRespuesta)
-                    window.location.href='listar'
-                }))
+            if (this.passC===this.empleado.pass) {
+                fetch('http://localhost/remote/?insertar=1',{
+                    method: "POST",
+                    body: JSON.stringify(datosEnviar)
+                })
+                    .then(respuesta=>respuesta.json())
+                    .then((datosRespuesta=>{
+                        console.log(datosRespuesta)
+                       window.location.href='listar'
+                   }))
+              } else {
+                alert("Contraseñas diferentes")
+            }    
         }
     }
 }

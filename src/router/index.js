@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Crear from '../components/Crear.vue'
 import Editar from '../components/Editar.vue'
 import Listar from '../components/Listar.vue'
+import Eventos from '../components/Eventos.vue'
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     path: '/listar',
     name: 'Listar',
     component: Listar
+  },
+  {
+    path: '/eventos',
+    name: 'Eventos',
+    component: Eventos
   },
   {
     path: '/about',

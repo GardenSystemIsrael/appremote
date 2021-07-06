@@ -68,7 +68,7 @@ export default {
             fetch('http://localhost/remote/')
                 .then(respuesta=>respuesta.json())
                 .then((datosRespuesta)=>{
-                    // console.table(datosRespuesta)
+                    console.table(datosRespuesta)
                     this.empleados=[]
                     if(typeof datosRespuesta[0].success==='undefined'){
                         this.empleados=datosRespuesta
@@ -79,15 +79,17 @@ export default {
 
         //creamos el metodo de borrar empleados
         borrarEmpleado(id){
-            console.log(id)
+            let opc = confirm("¿Decea borrar empleado?")
+
+            if (opc == true) {
                 fetch('http://localhost/remote/?borrar='+id)
                     .then(respuesta=>respuesta.json())
                     .then((datosRespuesta)=>{
                         console.table(datosRespuesta)
                         window.location.href="listar"
                     })
-                    .catch(console.log)
-           
+                    .catch(console.log)     
+            }
         }
 
     }
