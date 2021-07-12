@@ -5,6 +5,7 @@ import Crear from '../components/Crear.vue'
 import Editar from '../components/Editar.vue'
 import Listar from '../components/Listar.vue'
 import Eventos from '../components/Eventos.vue'
+// import CargarMapa from '../components/CargarMapa.vue'
 
 const routes = [
   {
@@ -33,6 +34,11 @@ const routes = [
     name: 'Eventos',
     component: Eventos
   },
+  // {
+  //   path:'/mapa',
+  //   name: 'CargarMapa',
+  //   component: CargarMapa
+  // },
   {
     path: '/about',
     name: 'About',

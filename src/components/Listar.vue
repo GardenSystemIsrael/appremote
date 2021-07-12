@@ -1,12 +1,12 @@
 <template>
     <div class="container">
 
-        <div class="card">
+        <div class="card ">
             <div class="card-header">
                 Empleados
             </div>
             <div class="card-body">
-                <table class="table table-striped">
+                <table class="table table-hover ">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -29,10 +29,10 @@
                             <td>
                                    
                                 <router-link :to="{name:'Editar', params:{id:empleado.id}}"
-                                class="btn btn-outline-success margen-derecho">
+                                class="btn btn-outline-success btn-sm margen-derecho">
                                     Editar
                                 </router-link>
-                                <button type="button" class="btn btn-outline-danger" v-on:click="borrarEmpleado(empleado.id)">
+                                <button type="button" class="btn btn-outline-danger btn-sm" v-on:click="borrarEmpleado(empleado.id)">
                                     Borrar
                                 </button>
                             </td>
@@ -45,8 +45,11 @@
             </div>     
         </div>
 
+
     </div>
 </template>
+
+
 
 <script>
 export default {
