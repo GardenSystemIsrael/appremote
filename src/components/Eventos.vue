@@ -16,7 +16,7 @@
                             <th>FECHA</th>
                             <th>HORA</th>
                             <th>LAT - LONG</th>
-                            <!-- <th>EVENTOS</th> -->
+                            <th>EVENTOS</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -28,10 +28,15 @@
                                 <td>{{ event.datetime.substring(0,10) }}</td>
                                 <td>{{ event.time }}</td>
                                 <td>{{ event.lat_long }}</td>
-                                <!-- <td>
-                                    <router-link :to="{name:'Mapa', params:{code:event.code}}"
-                                        class="btn btn-outline-primary btn-sm">ver mapa</router-link>
-                                </td> -->
+                                <td>
+                                    <router-link :to="{name:'Mapa', params:{ubi:event.lat_long}}"
+                                        class="btn btn-outline-success btn-sm margen-derecho">
+                                        Ver Mapa
+                                     </router-link>
+                                     <!-- <div>
+                                        <Mapa :latitude= 13.7013266 :longitude= -89.226622 :title="'Titulo Marcador'" />
+                                     </div> -->
+                                </td>
                             </tr>
                         </tbody>
                 </table>
@@ -42,13 +47,16 @@
         </div>
 
     </div>
-
+    <Mapa :latitude= 13.7013266 :longitude= -89.226622 :title="'prueba test'" />
     
 </template>
 
 <script>
-
+import Mapa from './Mapa.vue'
 export default {    
+    components: {
+        Mapa,
+    },
     data(){
         return{
             events: []
