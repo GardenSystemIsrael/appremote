@@ -1,7 +1,7 @@
 <template>
     <div class="container">
 
-        <div class="card ">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
             <div class="card-header">
                 Empleados
             </div>

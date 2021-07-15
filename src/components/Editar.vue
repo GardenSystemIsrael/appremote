@@ -13,7 +13,7 @@
                     <div class="form-group">
                       <label for="code">CODE</label>
                       <input type="text"
-                        class="form-control" name="code" id="code" v-model="empleado.code" aria-describedby="helpId"
+                        class="form-control upper" name="code" id="code" v-model="empleado.code" aria-describedby="helpId"
                         placeholder="EMP001" required>
                       <small id="helpId" class="form-text text-muted">codigo del empleado</small>
                     </div>
@@ -21,7 +21,7 @@
                     <div class="form-group">
                       <label for="name">NOMBRE</label>
                       <input type="text"
-                        class="form-control" name="name" id="name" v-model="empleado.name" aria-describedby="helpId" 
+                        class="form-control upper" name="name" id="name" v-model="empleado.name" aria-describedby="helpId" 
                         placeholder="ANAHI" required>
                       <small id="helpId" class="form-text text-muted">Nombre del empleado</small>
                     </div>
@@ -29,7 +29,7 @@
                     <div class="form-group">
                       <label for="last_name">APELLIDO PATERNO</label>
                       <input type="text"
-                        class="form-control" name="last_name" id="last_name" v-model="empleado.last_name" aria-describedby="helpId" 
+                        class="form-control upper" name="last_name" id="last_name" v-model="empleado.last_name" aria-describedby="helpId" 
                         placeholder="GARCIA" required>
                       <small id="helpId" class="form-text text-muted">Nombre del empleado</small>
                     </div>
@@ -37,7 +37,7 @@
                     <div class="form-group">
                       <label for="surname">APELLIDO MATERNO</label>
                       <input type="text"
-                        class="form-control" name="surname" id="surname" v-model="empleado.surname" aria-describedby="helpId" 
+                        class="form-control upper" name="surname" id="surname" v-model="empleado.surname" aria-describedby="helpId" 
                         placeholder="PERCINA" required>
                       <small id="helpId" class="form-text text-muted">Apellido materno del empleado</small>
                     </div>
@@ -45,7 +45,7 @@
                     <div class="form-group">
                       <label for="email">CORREO</label>
                       <input type="email"
-                        class="form-control" name="email" id="email" v-model="empleado.email" aria-describedby="helpId" 
+                        class="form-control upper" name="email" id="email" v-model="empleado.email" aria-describedby="helpId" 
                         placeholder="ANAHI@GMAIL.COM" required>
                       <small id="helpId" class="form-text text-muted">Correo del empleado</small>
                     </div>
@@ -91,12 +91,12 @@ export default {
         },
         actualizar(){
             let datosEnviar = {
-                id: this.$route.params.id,
+                id: this.$route.params.id.toUpperCase(),
                 code: this.empleado.code,
-                name: this.empleado.name,
-                last_name: this.empleado.last_name,
-                surname: this.empleado.surname,
-                email: this.empleado.email
+                name: this.empleado.name.toUpperCase(),
+                last_name: this.empleado.last_name.toUpperCase(),
+                surname: this.empleado.surname.toUpperCase(),
+                email: this.empleado.email.toUpperCase()
             }
 
             fetch('http://localhost/remote/?actualizar='+this.$route.params.id,{
@@ -116,5 +116,8 @@ export default {
 <style scoped>
     .margen-derecho {
         margin-right: 10px;
+    }
+    .upper {
+        text-transform: uppercase;
     }
 </style>
