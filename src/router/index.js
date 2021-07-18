@@ -35,7 +35,7 @@ const routes = [
     component: Eventos
   },
   {
-    path:'/mapa/:ubi',
+    path:'/mapa',
     name: 'Mapa',
     component: Mapa
   },

@@ -47,16 +47,12 @@
         </div>
 
     </div>
-    <Mapa :latitude= 13.7013266 :longitude= -89.226622 :title="'prueba test'" />
     
 </template>
 
 <script>
-import Mapa from './Mapa.vue'
+
 export default {    
-    components: {
-        Mapa,
-    },
     data(){
         return{
             events: []
