@@ -29,7 +29,7 @@
                                 <td>{{ event.time }}</td>
                                 <td>{{ event.lat_long }}</td>
                                 <td>
-                                    <router-link :to="{name:'Mapa', params:{ubi:event.lat_long}}"
+                                    <router-link :to="{name:'Mapa', params:{id:event.id}}"
                                         class="btn btn-outline-success btn-sm margen-derecho">
                                         Ver Mapa
                                      </router-link>
