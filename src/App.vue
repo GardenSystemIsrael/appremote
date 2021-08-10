@@ -1,8 +1,6 @@
 <template >
-  <div id="nav">
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> | -->
-
+ <!-- <div id="nav">
+    
     <nav class="navbar navbar-expand navbar-light bg-dark">
         <div class="nav navbar-nav">  
           <router-link to="/crear" class="nav-link derecha">Dar de alta empleado</router-link> 
@@ -11,14 +9,26 @@
         </div>
     </nav>
 
-  </div>
+  </div> -->
   <router-view/>
 </template>
 
-<style>
+<script>
+
+
+// import Barnav from './components/Barnav.vue'
+
+export default {
+  // components: { Barnav },
+  name: "app",
+  
+}
+</script>
+
+<style scoped>
 #nav {
   padding: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 #nav a {
@@ -34,3 +44,4 @@
   color: white;
 }
 </style>
+

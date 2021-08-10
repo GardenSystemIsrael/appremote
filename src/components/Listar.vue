@@ -1,4 +1,17 @@
 <template>
+
+<div id="nav">
+    
+    <nav class="navbar navbar-expand navbar-light bg-dark">
+        <div class="nav navbar-nav">  
+          <router-link to="/crear" class="nav-link derecha">Dar de alta empleado</router-link> 
+          <router-link to="/listar" class="nav-link derecha">Consultar empleados</router-link>
+          <router-link to="/eventos" class="nav-link" >Ver eventos</router-link>
+        </div>
+    </nav>
+
+  </div>
+
     <div class="container">
 
         <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -6,7 +19,7 @@
                 Empleados
             </div>
             <div class="card-body">
-                <table class="table table-hover ">
+                <table class="table table-hover table-responsive">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -52,7 +65,11 @@
 
 
 <script>
+
+// import Barnav from './Barnav.vue'
+
 export default {
+    // components: { Barnav },
     data() {
         return {
             empleados: [], 
@@ -103,4 +120,39 @@ export default {
     .margen-derecho {
         margin-right: 10px;
     }
+
+.container {
+    margin-top: 10px;
+  }
+  #nav {
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+
+  #nav a {
+    font-weight: bold;
+    color: #eff4f8;
+  }
+
+  #nav a.router-link-exact-active {
+    color: #f0bd30;
+  }
+  .derecha {
+    margin-right: 10pd;
+    color: white;
+  }
+  .btn {
+      margin-bottom: 5px;
+  }
+
+  @media  screen and (min-width: 540px){
+      .btn {
+       
+      }
+  }
+  @media  screen and (max-width: 540px){
+      .container {
+        padding: 0px;
+      }
+  }
 </style>
