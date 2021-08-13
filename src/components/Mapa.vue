@@ -4,11 +4,13 @@
 <router-link to="/eventos" class="btn btn-outline-primary">Regresar</router-link>
 <div class="contenedor"> 
   <div class="mapa shadow p-3 mb-5 bg-white rounded">
+    <!-- :center="center" -->
     <GoogleMap
       api-key="AIzaSyAnxDREVtMdfLBg8IsexD8E6y0t3iW6Ku0"
       style="width: 100%; height: 500px" 
-      :center="center"
-      :zoom="12"
+
+      :center="{ lat: getLat(), lng: getLong()} "
+      :zoom="14"
     >
       <Marker :options="{ position: { lat: getLat(), lng: getLong()} }" />
     </GoogleMap>
@@ -43,7 +45,10 @@ export default defineComponent({
     const center = { lat: 25.680378244350234, lng: -100.31808139505094 }
     // const mark = ref({lat: this.eventos.lat_long.value , lng: this.eventos.lat_long.value})
     let eventos = ref([])
-    return { center, eventos }
+    return { 
+      center,
+      eventos
+    }
   },
   created: function() {
     this.listaEvento();
