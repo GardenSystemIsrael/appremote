@@ -2,6 +2,8 @@
 
 <div class="container">
 <router-link to="/eventos" class="btn btn-outline-primary">Regresar</router-link>
+
+
 <div class="contenedor"> 
   <div class="mapa shadow p-3 mb-5 bg-white rounded">
     <!-- :center="center" -->
@@ -25,6 +27,11 @@
                 <li><b>FECHA: </b> {{ this.eventos.datetime }}</li>
                 <li><b>HORA: </b> {{ this.eventos.time }}</li>
                 <li><b>GRUPO: </b>{{ this.eventos.gpo_dispositivos }}</li>
+                <li>
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong> No se pudo obtener la ubicacion </strong> 
+                  </div>
+                </li>
               </ul>
               <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
         </div>
@@ -36,6 +43,8 @@
 </template>
 
 <script>
+
+
 import { defineComponent, ref } from 'vue'
 import { GoogleMap, Marker } from 'vue3-google-map'
 
@@ -44,6 +53,7 @@ export default defineComponent({
   setup() {
     const center = { lat: 25.680378244350234, lng: -100.31808139505094 }
     // const mark = ref({lat: this.eventos.lat_long.value , lng: this.eventos.lat_long.value})
+    let ubi = ref(false)
     let eventos = ref([])
     return { 
       center,
@@ -67,11 +77,21 @@ export default defineComponent({
 
     getLat(){
       let lat = parseFloat((this.eventos.lat_long || "").split(",")[0])
-      return lat
+      if (!lat){
+        this.ubi = true;
+        return  25.680378244350234;
+      } else {
+        return lat;
+      }
     },
     getLong(){
         let long = parseFloat((this.eventos.lat_long || "").split(",")[1])
-        return long
+        if (!long){
+          this.ubi = true;
+          return -100.31808139505094;
+        } else {
+          return long;
+        }
     }
   }
 })
